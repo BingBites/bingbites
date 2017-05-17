@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
       user
     end
   end
+  
   def super_admin?
     role_type 'SUPERADMIN'
   end
