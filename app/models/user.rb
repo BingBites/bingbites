@@ -10,6 +10,15 @@ class User < ActiveRecord::Base
       user
     end
   end
+  
+  def self.find_for_twitter_oauth(omniauth)
+      authentication = UserToken.find_by_provider_and_uid(omniauth['provider'], omniauth['uid'])
+      if authentication && authentication.user
+        authentication.user
+      else
+        User.new
+      end
+      
   def super_admin?
     role_type 'SUPERADMIN'
   end
@@ -24,4 +33,6 @@ class User < ActiveRecord::Base
     return true if role.eql? role_type
     false
   end
+  end
+
 end

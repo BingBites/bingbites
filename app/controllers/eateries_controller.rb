@@ -58,5 +58,4 @@ class EateriesController < ApplicationController
   def find_eatery
     @eatery = Eatery.find(params[:id])
   end
-
 end

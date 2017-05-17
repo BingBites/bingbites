@@ -28,7 +28,8 @@
               = link_to eatery do  
                 = image_tag eatery.eatery_img.url(:eatery_index), class: 'eateryImg'
               .white-header.titleImg
-                = link_to eatery.name.upcase, eatery_path(eatery), class: 'eateryTitle'
+                = link_to eatery.name.upcase, eatery_path(eatery),
+                class: 'eateryTitle'
                 .address
                   = eatery.address.slice(0, 30) 
           / = image_tag ea.book_img.url(:book_index), class: "book"

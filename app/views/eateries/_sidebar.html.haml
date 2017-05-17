@@ -24,16 +24,16 @@
             %i.fa{ class: "fa-#{FA_ICO_MAP[cat.name]}" }
             = cat.name
 
-      - if current_user.super_admin?
-        %li.sub-menu
-          %a{:href => "javascript:;"}
-            %i.fa.fa-user-secret
-            %span ADMIN PANEL
-          %ul.sub
-            %li
-              = link_to 'Create Eatery', new_eatery_path
-            %li
-              = link_to 'Edit Eateries', new_eatery_path
+      // - if current_user?
+      //   %li.sub-menu
+      //     %a{:href => "javascript:;"}
+      //       %i.fa.fa-user-secret
+      //       %span ADMIN PANEL
+      //     %ul.sub
+      //       %li
+      //         = link_to 'Create Eatery', new_eatery_path
+      //       %li
+      //         = link_to 'Edit Eateries', new_eatery_path
 
       %li.sub-menu.logout
         = link_to logout_path, method: :delete do
