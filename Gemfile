@@ -45,9 +45,6 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'rspec-rails'
   gem 'ZenTest'
-  gem 'factory_girl_rails'
-  gem 'guard-rspec'
-  gem 'bcrypt-ruby'
 end
 
 group :test do

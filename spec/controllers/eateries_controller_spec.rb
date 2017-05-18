@@ -31,15 +31,7 @@ RSpec.describe EateriesController, type: :controller do
       get :new
       expect(response).to have_http_status(200)
     end
-    
-    # edit, new,
-   
 end
 
-def new
-  @contact = Contact.new
-  %w(home office mobile).each do |phone|
-    @contact.phones.build(phone_type: phone)
-  end
-end
+
 

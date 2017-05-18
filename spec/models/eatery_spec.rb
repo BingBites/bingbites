@@ -29,6 +29,7 @@ RSpec.describe Eatery, type: :model do
   
 end
 
+
  
 
 

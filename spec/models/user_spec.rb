@@ -19,13 +19,11 @@ RSpec.describe User, type: :model do
     last_user = User.last
     expect(user.role).to eq 'SUPERADMIN'
   end
-  
 end
 
 describe User do
   before { @user = User.new(name: "Test User", email: "test@gmail.com", 
             role: "SUPERADMIN") }
-  
   subject { @user }
   
   it { should respond_to(:name) }
