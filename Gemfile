@@ -47,6 +47,7 @@ group :development, :test do
   gem 'ZenTest'
   gem 'factory_girl_rails'
   gem 'guard-rspec'
+  gem 'bcrypt-ruby'
 end
 
 group :test do

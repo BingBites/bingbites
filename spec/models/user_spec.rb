@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'spec_helper'
 
 RSpec.describe User, type: :model do
   it "is valid with valid attributes" do
@@ -35,7 +36,6 @@ describe User do
     it { should be_valid }
   end
   
- 
 end
 
 
