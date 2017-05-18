@@ -10,8 +10,9 @@ Feature: Twitter auth
     Given I am on the homepage
     When I click on "Twitter"
     Then I should be signed in
-    
-  Scenario: List page 
-    Given I am on the list page
-    When I click the "AMERICANO" link
-    # Then I should see "Edit" button
+
+      
+  # Scenario: List page 
+  #   Given I am on the list page
+  #   When I click the "AMERICANO" link
+  #   # Then I should see "Edit" button

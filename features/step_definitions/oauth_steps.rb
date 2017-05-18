@@ -2,8 +2,7 @@ Given (/^we are mocking a successful Twitter response$/) do
   OmniAuth.config.test_mode = true
   Capybara.default_host = 'http://localhost:3000/auth/twitter/callback'
 
-
- OmniAuth.config.mock_auth[:twitter] = 
+OmniAuth.config.mock_auth[:twitter] = 
  {
     'uid' => '1337',
     'provider' => 'twitter',
@@ -14,7 +13,12 @@ Given (/^we are mocking a successful Twitter response$/) do
       'image_url' => 'jejejr'
       }
   }
-end
+  # binding.pry
+  # @test = Eatery.create(name: "boy",address: "cave")
+  # @test = Category.create(name: "AMERICANO",id: "1")
+  
+  end
+
 When (/^I click on "(.*?)"$/) do |link| 
 visit root_path
 expect(page).to have_link("Twitter")
@@ -24,14 +28,14 @@ end
 ### THEN ###
 Then(/^I should be signed in$/) do
   expect(page).to have_content 'LOG OUT'
-  expect(page).to have_content 'AMERICANO'
+  expect(page).to have_content 'best restaurants'
 end
 
-When(/^I click the "(.*?)" link$/) do |link_text|
-  click_link 'AMERICANO'
-end
+# When(/^I click the "(.*?)" link$/) do |link_text|
+#   click_link 'AMERICANO'
+# end
 
-Then(/^I should see the Edit button$/) do
-    expect{ click_button "Edit" }
-    end
+# Then(/^I should see the Edit button$/) do
+#     expect{ click_button "Edit" }
+#     end
     
