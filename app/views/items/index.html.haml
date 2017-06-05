@@ -1,0 +1,24 @@
+.itemsListing.manageListing
+  - unless @items.blank?
+    .itemsHeader
+      = "Manage Items for #{@eatery.name}"
+    %ul.items
+      - @items.each do |item|
+        %li
+          .itemImage
+            = image_tag item.item_image.url(:item_medium), class: 'eateryItemImg'
+          .itemName
+            = item.name
+          .itemDescription
+            = item.description
+  - else
+    .itemsHeader
+      = "Manage Items for #{@eatery.name}"
+    %ul.items.noItemsFound
+      %li
+        No items yet.
+
+  .addNewItem
+    %h2.text-center.headerRibbon.createNewItem
+      Create New Item
+    = render 'form'

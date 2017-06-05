@@ -1,0 +1,54 @@
+.blog-bg.showTitleHeader
+  .white-header.titleHeaderShow
+    .showBackground{style: "background-image: url(#{@eatery.eatery_img.url});"}
+    %h3.showTitle
+      %strong= @eatery.name.upcase
+    %h3.form-group.showSubTitle
+      We are located at, 
+      %strong= @eatery.address
+    %h4.form-group.showCategory
+      Cuisine we serve, 
+      %strong= @eatery.category ? @eatery.category.name.titleize : 'No Category'
+    .traversal
+      = link_to root_path, method: :get, class: 'btn btn-array btn-primary' do
+        %i.fa.fa-backward
+        &nbsp;Back&nbsp;
+      - if current_user.super_admin?
+        = link_to edit_eatery_path(@eatery), class: 'btn btn-array btn-warning' do
+          %i.fa.fa-edit
+          &nbsp;Edit&nbsp;
+        = link_to eatery_path(@eatery), method: :delete, data: { confirm: "Are you sure?"},
+          class: 'btn btn-danger btn-array' do
+          %i.fa.fa-trash
+          &nbsp;Delete&nbsp;
+  .itemsListing
+    - unless @eatery.items.blank?
+      .itemsHeader
+        Excluive Listing Just For You
+      %ul.items
+        - @eatery.items.each do |e|
+          %li
+            .itemImage
+              = image_tag e.item_image.url(:item_medium), class: 'eateryItemImg'
+            .itemName
+              = e.name
+            .itemDescription
+              - if e.description.length < 160
+                = e.description
+              - else
+                = "#{e.description.first(160)}..."
+    - else
+      .itemName.notFound
+        .notFoundHeader
+          = "Duh! No food here."
+        .notFoundDescription
+          = "Worry not. Our team is working hard to bring you some. Meanwhile  please head to some of the exciting listings that we have on file, just for you :)"
+        .notFoundLinks
+          = link_to "Discover more of fine dining around.", root_path 
+        
+  .latLong
+    = { lat: @eatery.lat, long: @eatery.long }.to_json 
+  .form-inline
+    .showMap#map
+ 
+      

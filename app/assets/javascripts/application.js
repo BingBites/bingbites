@@ -11,11 +11,19 @@
 // about supported directives.
 //
 //= require jquery.min
-//= require jquery.scrolly.min
-//= require jquery.dropotron.min
-//= require jquery.scrollex.min
-//= require skel.min
-//= require util.js		
-//= require main.js
-//= require jquery_ujs
+//= require homepage/jquery.dropotron.min
+//= require homepage/jquery.scrollex.min
+//= require homepage/skel.min
+//= require homepage/util.js
+//= require homepage/main.js
+//= require homepage/jquery.scrolly.min
 //= require turbolinks
+//= require jquery_ujs
+//= require eateries/jquery.dcjqaccordion.2.7
+//= require eateries/jquery.nicescroll
+//= require eateries/jquery.scrollTo.min.js
+//= require eateries/jquery.sparkline.js
+//= require eateries/gritter/js/jquery.gritter.js
+//= require eateries/gritter-conf.js
+//= require eateries/eateries
+//= require eateries/common-scripts

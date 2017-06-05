@@ -1,0 +1,26 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title BingBites
+    = favicon_link_tag 'pic01.jpg'
+    / = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = stylesheet_link_tag 'application-eateries', media: 'all', 'data-turbolinks-track' => true
+    = stylesheet_link_tag "https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.css"
+    = stylesheet_link_tag 'https://api.tiles.mapbox.com/mapbox-gl-js/v0.34.0/mapbox-gl.css'
+    = stylesheet_link_tag 'https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.1.0/mapbox-gl-geocoder.css'
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    .clearfix
+    %body
+      #page-wrapper
+        .row
+          - flash.each do |key, value|
+            %div{:class => "alert alert-#{key}"}
+              = value
+        = yield
+    = javascript_include_tag 'https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.js'
+    = javascript_include_tag 'https://api.tiles.mapbox.com/mapbox-gl-js/v0.34.0/mapbox-gl.js'
+    = javascript_include_tag 'https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.1.0/mapbox-gl-geocoder.min.js'
+    = javascript_include_tag  'maps'

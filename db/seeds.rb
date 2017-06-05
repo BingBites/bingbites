@@ -3,5 +3,10 @@
 #
 # Examples:
 #
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
+#   cities = City.create([{  name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+["MEXICAN", "AMERICAN", "ASIAN", "CONTINENTAL", "ITALIAN", 
+"DAILY SPECIALITY", "ETHNIC", "FAST FOOD", "CASUAL DINING",
+"FAMILY STYLE", "FINE DINING", "BARBECUE", "CAFE", "PUB"].each do |cat|
+  Category.where(name: cat).first_or_create
+end

@@ -2,3 +2,4 @@ log/
 tmp/
 coverage/
 .bundle/
+.byebug_history

@@ -1,0 +1,43 @@
+/ sidebar start
+%aside
+  #sidebar.nav-collapse
+    / sidebar menu start
+    %ul#nav-accordion.sidebar-menu
+      %p.centered
+        %a{:href => "profile.html"}
+        - if current_user.image_url
+          = image_tag current_user.image_url, class: 'avatar img-circle', alt: current_user.name
+      %h5.centered= current_user.name
+      
+      %li.mt
+      %li.sub-menu
+        = link_to eateries_path, |
+          class: "#{'active' unless params[:category] }"  do
+          %i.fa.fa-eercast
+          List All
+
+      - Category.all.each do |cat|
+        %li.sub-menu
+          = link_to eateries_path(search: params[:search], category: cat.name), |
+            class: "#{'active' if params[:category] == cat.name }", 
+            method: :get do
+            %i.fa{ class: "fa-#{FA_ICO_MAP[cat.name]}" }
+            = cat.name
+
+      - if current_user.super_admin?
+        %li.sub-menu
+          %a{:href => "javascript:;"}
+            %i.fa.fa-user-secret
+            %span ADMIN PANEL
+          %ul.sub
+            %li
+              = link_to 'Create Eatery', new_eatery_path
+
+      %li.sub-menu.logout
+        = link_to logout_path, method: :delete do
+          %i.fa.fa-sign-out
+          LOG OUT &emsp;
+          
+    / sidebar menu end
+/ sidebar end
+

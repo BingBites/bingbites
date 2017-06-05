@@ -1,0 +1,28 @@
+= form_for [@eatery, @eatery_item] do |f|
+  - if @eatery_item.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@eatery_item.errors.count, "error")
+        prohibited this eatery_item from being saved:
+      %ul
+        - @eatery_item.errors.full_messages.each do |message|
+          %li= message
+  .form-group.field
+    = f.text_field :name, class: 'form-control', placeholder: :name
+  .form-group.field
+    = f.text_field :description, class: 'form-control', placeholder: :description
+  .form-group.field
+    = f.label :image
+    = f.file_field :item_image, class: 'form-control'
+  / .form-group.field
+  /   = f.label 'Category of the eatery_item:'
+  /   = f.select(:category_id, options_for_select(@categories), { include_blank: "Select a category" }, {class: 'selectpicker'})
+  .form-group.actions
+    = button_tag class: 'btn btn-success' do
+      %i.fa.fa-save
+      &nbsp;&nbsp;Save&nbsp;&nbsp;
+  .form-group
+    = link_to eateries_path, method: :get, class: 'btn btn-primary' do
+      %i.fa.fa-backward
+      &nbsp;Back&nbsp;
+

@@ -1,0 +1,32 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title BingBites
+    = favicon_link_tag 'favicon.ico'
+    / = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = stylesheet_link_tag 'application-homepage', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    .clearfix
+    %body.landing
+      #page-wrapper
+        / Header
+        - flash.each do |key, value|
+          %div{:class => "alert alert-homepage alert-#{key} "}
+            = value
+        %header#header
+          %h1#logo
+            = link_to 'BingBites', root_path
+          %nav#nav
+            %ul
+              %li
+                Sign In with &nbsp;
+                - if current_user
+                  = link_to 'Log Out', '/logout', class: 'button special twitter', method: :delete
+                - else
+                  = link_to '/auth/twitter', class: 'button special twitter',  id: 'twitter' do
+                    Twitter
+                    %i.fa.fa-sign-in
+        = yield

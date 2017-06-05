@@ -1,0 +1,11 @@
+.container.top-100.center
+  .span12
+    .row
+      %h2.text-center.headerRibbon
+        Create New Item
+      .col-sm-6
+        = render 'form'
+        .form-group
+          = link_to eateries_path, method: :get, class: 'btn btn-primary' do
+            %i.fa.fa-backward
+            &nbsp;Back&nbsp;

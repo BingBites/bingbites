@@ -1,11 +1,19 @@
 Rails.application.routes.draw do
+  get 'static_pages/tos'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
   root 'home#index'
-
+  get '/auth/twitter/callback', to:       'sessions#create'
+  delete '/logout',             to:       'sessions#destroy'
+  
+  resources :eateries do
+    resources :items 
+  end
+  resources :searches
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

@@ -1,0 +1,23 @@
+.container.top-100
+  .span12
+    .row
+      %h2.text-center.headerRibbon
+        = "Edit details of #{@eatery.name}"
+      .col-sm-6
+        = render 'form'
+        .form-group
+          = link_to eateries_path, method: :get, class: 'btn btn-array btn-primary' do
+            %i.fa.fa-backward
+            &nbsp;Back&nbsp;
+          = link_to new_eatery_path, class: 'btn btn-array btn-info' do
+            %i.fa.fa-plus
+            &nbsp;Create&nbsp;
+          = link_to eatery_path(@eatery), method: :delete, data: { confirm: "Are you sure?"}, class: 'btn btn-danger btn-array' do
+            %i.fa.fa-trash
+            &nbsp;Delete&nbsp;
+          = link_to eatery_items_path(@eatery), method: :get, class: 'btn btn-warning btn-array' do
+            %i.fa.fa-tasks
+            &nbsp;Manage Items&nbsp;
+      .col-sm-6
+        .form-group.float-right
+          .map#map.mapNewAdd
